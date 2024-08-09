@@ -367,12 +367,12 @@ class AlphaFoldIteration(hk.Module):
       structure_module_output = fold_module(representations, batch, is_training)
 
     ret = {}
-    #ret['representations'] = representations
+    ret['representations'] = representations
 
     for name, (head_config, module) in self.heads.items():
       if name == 'structure_module' and structure_module_output is not None:
         ret[name] = structure_module_output
-        representations['structure_module'] = structure_module_output.pop('act')
+        representations['structure_module'] = structure_module_output['act']
       # Skip confidence heads until StructureModule is executed.
       elif name in {'predicted_lddt', 'predicted_aligned_error',
                     'experimentally_resolved'}:
@@ -398,7 +398,6 @@ class AlphaFoldIteration(hk.Module):
       # Will be used for ipTM computation.
       ret[name]['asym_id'] = batch['asym_id']
 
-    ret['representations'] = representations
     return ret
 
 
