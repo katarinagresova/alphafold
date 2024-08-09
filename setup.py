@@ -18,7 +18,7 @@ from setuptools import setup
 
 setup(
     name='alphafold-colabfold',
-    version='2.3.5',
+    version='2.3.6',
     long_description_content_type='text/markdown',
     description='An implementation of the inference pipeline of AlphaFold v2.3.1. '
     'This is a completely new model that was entered as AlphaFold2 in CASP14 '
@@ -34,14 +34,14 @@ setup(
         'chex',
         'dm-haiku',
         'dm-tree',
-        'docker',
+        #'docker',
         'immutabledict',
         'jax',
         'ml-collections',
         'numpy',
         'pandas',
         'scipy',
-        'tensorflow-cpu',
+        #'tensorflow-cpu',
     ],
     tests_require=[
         'matplotlib',  # For notebook_utils_test.
